@@ -4,9 +4,9 @@
 // init {
 //      //Executa alguma coisa durante inicialização do construtor da classe.
 //    }
-open class Conta (var titular: String = "", var numero: Int = 0) {
+abstract class Conta (var titular: String = "", var numero: Int = 0) {
     var saldo = 0.0
-        private set
+        protected set
     fun depositar(deposito: Double) {
         if (deposito > 0.0) {
             this.saldo += deposito
@@ -15,14 +15,7 @@ open class Conta (var titular: String = "", var numero: Int = 0) {
         }
     }
 
-    open fun sacar(saque: Double) {
-        if(this.saldo >= saque) {
-            this.saldo -= saque
-            println("Saque realizado no valor de R$ ${saque}, saldo atual de R$ ${this.saldo}")
-        } else {
-            println("Saldo na conta insuficiente: R$ ${this.saldo}")
-        }
-    }
+    abstract fun sacar(saque: Double)
 
     fun transferir(transferencia: Double, destino: Conta): Boolean {
         if (this.saldo >= transferencia) {

@@ -7,6 +7,11 @@ class ContaCorrente(
 ) {
     override fun sacar(saque: Double) {
         val valorComTaxa = saque + (saque*0.1)
-        super.sacar(valorComTaxa)
+        if(this.saldo >= valorComTaxa) {
+            this.saldo -= valorComTaxa
+            println("Saque realizado no valor de R$ ${valorComTaxa}, saldo atual de R$ ${this.saldo}")
+        } else {
+            println("Saldo na conta insuficiente: R$ ${this.saldo}")
+        }
     }
 }
