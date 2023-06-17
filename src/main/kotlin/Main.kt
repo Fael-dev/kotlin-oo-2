@@ -1,52 +1,34 @@
 fun main() {
     println("Bem-vindo ao Bytebank")
 
-    val funcionario = Funcionario(
-        "Rafael",
-        "000.000.000-00",
-        1200.00
+    val contaCorrente = ContaCorrente(
+        titular = "Rafael Leonan",
+        numero = 1001
+    )
+    val contaPoupanca = ContaPoupanca(
+        titular = "Rafael Rodrigues",
+        numero = 1002
     )
 
-    println("Nome: ${funcionario.nome}")
-    println("CPF: ${funcionario.cpf}")
-    println("Salário: ${funcionario.salario}")
-    println("Bonificação: ${funcionario.bonificacao()}")
+    contaCorrente.depositar(1000.00)
+    contaPoupanca.depositar(1000.00)
 
-    val gerente = Gerente(
-        nome = "Rafael",
-        cpf = "111.111.111-11",
-        salario = 1200.00,
-        senha = 12345678
-    )
+    println("saldo corrente: ${contaCorrente.saldo}")
+    println("saldo poupança: ${contaPoupanca.saldo}")
 
-    println("Nome: ${gerente.nome}")
-    println("CPF: ${gerente.cpf}")
-    println("Salário: ${gerente.salario}")
-    println("Bonificação: ${gerente.bonificacao()}")
+    contaCorrente.sacar(100.00)
+    contaPoupanca.sacar(100.00)
 
-    if (gerente.autenticacao(12345678)) {
-        println("Autenticou com sucesso!")
-    } else {
-        println("Falha na autenticação")
-    }
+    println("saldo após saque corrente: ${contaCorrente.saldo}")
+    println("saldo após saque poupança: ${contaPoupanca.saldo}")
 
-    val diretor = Diretor(
-        nome = "Gui",
-        cpf = "222.222.222-22",
-        salario = 1200.00,
-        senha = 12345678,
-        plr = 200.00
-    )
+    contaCorrente.transferir(100.0, contaPoupanca)
 
-    println("Nome: ${diretor.nome}")
-    println("CPF: ${diretor.cpf}")
-    println("Salário: ${diretor.salario}")
-    println("Bonificação: ${diretor.bonificacao()}")
-    println("PLR: ${diretor.plr}")
+    println("saldo corrente após realizar transferência: ${contaCorrente.saldo}")
+    println("saldo poupança após receber transferência: ${contaPoupanca.saldo}")
 
-    if (diretor.autenticacao(12345678)) {
-        println("Autenticou com sucesso!")
-    } else {
-        println("Falha na autenticação")
-    }
+    contaPoupanca.transferir(100.0, contaCorrente)
+
+    println("saldo poupança após realizar transferência: ${contaPoupanca.saldo}")
+    println("saldo corrente após receber transferência: ${contaCorrente.saldo}")
 }

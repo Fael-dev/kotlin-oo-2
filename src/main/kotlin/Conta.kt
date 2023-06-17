@@ -4,7 +4,7 @@
 // init {
 //      //Executa alguma coisa durante inicialização do construtor da classe.
 //    }
-class Conta (var titular: String = "", var numero: Int = 0) {
+open class Conta (var titular: String = "", var numero: Int = 0) {
     var saldo = 0.0
         private set
     fun depositar(deposito: Double) {
@@ -15,7 +15,7 @@ class Conta (var titular: String = "", var numero: Int = 0) {
         }
     }
 
-    fun sacar(saque: Double) {
+    open fun sacar(saque: Double) {
         if(this.saldo >= saque) {
             this.saldo -= saque
             println("Saque realizado no valor de R$ ${saque}, saldo atual de R$ ${this.saldo}")
