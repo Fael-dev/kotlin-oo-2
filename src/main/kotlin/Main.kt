@@ -14,7 +14,7 @@ fun main() {
 
     val gerente = Gerente(
         nome = "Rafael",
-        cpf = "000.000.000-00",
+        cpf = "111.111.111-11",
         salario = 1200.00,
         senha = 12345678
     )
@@ -25,6 +25,26 @@ fun main() {
     println("Bonificação: ${gerente.bonificacao()}")
 
     if (gerente.autenticacao(12345678)) {
+        println("Autenticou com sucesso!")
+    } else {
+        println("Falha na autenticação")
+    }
+
+    val diretor = Diretor(
+        nome = "Gui",
+        cpf = "222.222.222-22",
+        salario = 1200.00,
+        senha = 12345678,
+        plr = 200.00
+    )
+
+    println("Nome: ${diretor.nome}")
+    println("CPF: ${diretor.cpf}")
+    println("Salário: ${diretor.salario}")
+    println("Bonificação: ${diretor.bonificacao()}")
+    println("PLR: ${diretor.plr}")
+
+    if (diretor.autenticacao(12345678)) {
         println("Autenticou com sucesso!")
     } else {
         println("Falha na autenticação")
