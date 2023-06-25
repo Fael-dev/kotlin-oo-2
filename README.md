@@ -1,4 +1,4 @@
-# kotlin-poo-2
+# kotlin-oo-2
 ## Kotlin: herança, polimorfismo e Interface
 ### Conteúdo:
 - [X] Criando novas classes Ver primeiro vídeo
